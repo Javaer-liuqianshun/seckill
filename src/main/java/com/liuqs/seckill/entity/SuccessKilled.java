@@ -22,4 +22,14 @@ public class SuccessKilled {
      * 在多的方添加一的实体对象
      */
     private Seckill secKill;
+
+    @Override
+    public String toString() {
+        return "SuccessKilled{" +
+                "seckillId=" + seckillId +
+                ", userPhone=" + userPhone +
+                ", state=" + state +
+                ", createTime=" + createTime +
+                '}';
+    }
 }
