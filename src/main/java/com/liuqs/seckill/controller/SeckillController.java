@@ -4,7 +4,6 @@ import com.liuqs.seckill.dto.Exposer;
 import com.liuqs.seckill.dto.SeckillExecution;
 import com.liuqs.seckill.dto.SeckillResult;
 import com.liuqs.seckill.entity.Seckill;
-import com.liuqs.seckill.entity.SuccessKilled;
 import com.liuqs.seckill.enums.SeckillStateEnum;
 import com.liuqs.seckill.exception.RepeatKillException;
 import com.liuqs.seckill.exception.SeckillCloseException;
@@ -83,14 +82,14 @@ public class SeckillController {
             return new SeckillResult<SeckillExecution>(true, seckillExecution);
         } catch (RepeatKillException e) {
             SeckillExecution seckillExecution = new SeckillExecution(seckillId, SeckillStateEnum.REPEAT_KILL);
-            return new SeckillResult<SeckillExecution>(false, seckillExecution);
+            return new SeckillResult<SeckillExecution>(true, seckillExecution);
         } catch (SeckillCloseException e) {
             SeckillExecution seckillExecution = new SeckillExecution(seckillId, SeckillStateEnum.END);
-            return new SeckillResult<SeckillExecution>(false, seckillExecution);
+            return new SeckillResult<SeckillExecution>(true, seckillExecution);
         } catch (Exception e) {
             logger.error(e.getMessage(), e);
             SeckillExecution seckillExecution = new SeckillExecution(seckillId, SeckillStateEnum.INNER_ERROR);
-            return new SeckillResult<SeckillExecution>(false, seckillExecution);
+            return new SeckillResult<SeckillExecution>(true, seckillExecution);
         }
     }
 
