@@ -56,7 +56,7 @@ public class SeckillServiceTest {
     }
 
     /**
-     * 继承测试,把exportSeckill()和executeSeckill()测试方法逻辑放在一起
+     * 完整逻辑测试,把exportSeckill()和executeSeckill()测试方法逻辑放在一起
      */
     @Test
     public void seckillLogic() throws Exception{
